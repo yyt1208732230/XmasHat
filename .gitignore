@@ -1,0 +1,16 @@
+.dev.vars*
+.env*
+.wrangler/
+wrangler.local.*
+wrangler.toml
+wrangler.json
+wrangler.jsonc
+*.sqlite
+*.sqlite-*
+worker-local/
+*-local/
+node_modules/
+dist/
+.DS_Store
+Thumbs.db
+/santaHatAVR3.png

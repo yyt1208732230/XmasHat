@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Design a Santa hat, share it with AVR3 and vote for your favourites in the Xmas Hat Design Competition.">
+  <title>Xmas Hat Design Competition | AVR3</title>
+  <link rel="icon" href="./assets/santaHatAVR3.png">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body id="top">
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="AVR3 Christmas home">
+        <img src="./assets/santaHatAVR3.png" width="44" height="44" alt="">
+        <span>AVR3 <small>CHRISTMAS</small></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#gallery">Gallery</a>
+        <a href="#rules">Rules</a>
+      </nav>
+      <div class="account">
+        <span id="account-name" hidden></span>
+        <button class="button outline" id="account-button" type="button">Log in</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero" aria-labelledby="title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> THE AVR3 CHRISTMAS CHALLENGE</p>
+        <h1 id="title">Xmas Hat <em>Competition</em></h1>
+        <p>Give Santa’s hat an AVR3 makeover. Sketch it, make it by hand or use AI, then share your design and vote for your favourites.</p>
+        <div class="hero-actions">
+          <button class="button primary" type="button" data-submit-entry><span aria-hidden="true">＋</span> Submit a design</button>
+          <a class="button hero-link" href="#gallery">Browse entries</a>
+        </div>
+        <p class="hero-date"><span aria-hidden="true">✦</span> <span id="event-date">Winner announced 2 December</span></p>
+      </div>
+      <div class="hero-art">
+        <img src="./assets/hero.webp" alt="Red velvet Santa hat fitted with a futuristic radar sensor" fetchpriority="high">
+      </div>
+    </section>
+
+    <section class="theme" aria-label="This year's theme">
+      <strong>This year’s theme</strong>
+      <ul>
+        <li>Automated driving</li><li>Technology</li><li>Safety</li>
+      </ul>
+    </section>
+
+    <details id="rules" class="rules">
+      <summary>Competition rules <span aria-hidden="true"></span></summary>
+      <div class="rule-grid">
+        <div>
+          <h2>Make and submit</h2>
+          <p>Enter as many designs as you like, in your own time. Upload a still JPG, PNG or WebP, up to 3 MB. Videos and animated images are out. The title and description are optional.</p>
+        </div>
+        <div>
+          <h2>Vote and score</h2>
+          <p>Give one vote per category on as many entries as you like. Tap again to remove it. Total score = ✨ Wow factor votes + 🎯 Theme fit votes.</p>
+          <p>Vote totals and rankings are live. Other participants cannot see who voted. The winner earns an award. Earlier entries appear first when scores tie, and tied leaders share the win.</p>
+        </div>
+        <div>
+          <h2>Keep it fair and respectful</h2>
+          <p>Create one account for yourself. Use a password just for this competition. If you forget it, your account becomes a ghost account 👻. The site and competition data will be removed after the event.</p>
+          <p>Entries must respect racial and gender equality and diverse beliefs, and follow QUT’s <a href="https://mopp.qut.edu.au/document/view.php?id=25">student</a> and <a href="https://mopp.qut.edu.au/document/view.php?id=24">staff</a> codes of conduct.</p>
+        </div>
+      </div>
+    </details>
+
+    <section id="gallery" class="gallery" aria-labelledby="gallery-title">
+      <div class="gallery-heading">
+        <div>
+          <h2 id="gallery-title">The hat gallery</h2>
+          <p>✨ Wow factor for designs that surprise you. 🎯 Theme fit for designs that bring all three ideas together.</p>
+        </div>
+        <label class="sort">Sort by
+          <select id="sort">
+            <option value="score">Top scored</option>
+            <option value="newest">Newest first</option>
+          </select>
+        </label>
+      </div>
+      <p id="notice" class="notice" role="status" hidden></p>
+      <div id="entries" class="entry-grid"></div>
+      <p id="gallery-state" class="gallery-state" role="status">Loading entries…</p>
+      <button id="more" class="button outline more" type="button" hidden>Load more entries</button>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="shell">AVR3 Xmas Hat Competition</div></footer>
+
+  <dialog id="account-dialog" aria-labelledby="account-title">
+    <div class="dialog-head">
+      <h2 id="account-title">Log in</h2>
+      <form method="dialog"><button class="close" aria-label="Close" value="cancel">×</button></form>
+    </div>
+    <form id="account-form" class="dialog-form">
+      <label>Username <input name="username" autocomplete="username" required minlength="3" maxlength="32" pattern="[A-Za-z0-9._\-]{3,32}" aria-describedby="username-help"></label>
+      <small id="username-help" hidden>3–32 letters, numbers, dots, underscores or hyphens.</small>
+      <label id="display-field" hidden>Display name <input name="displayName" maxlength="48" disabled></label>
+      <label>Password <input name="password" type="password" autocomplete="current-password" required minlength="3" maxlength="128"></label>
+      <p class="field-note">Use a password just for this competition. Forgot it? Your account becomes a ghost account 👻.</p>
+      <p class="form-error" role="alert" hidden></p>
+      <button class="button primary" id="account-submit" type="submit">Log in</button>
+      <button id="account-switch" class="text-button" type="button">Create an account</button>
+    </form>
+  </dialog>
+
+  <dialog id="entry-dialog" aria-labelledby="entry-title">
+    <div class="dialog-head">
+      <h2 id="entry-title">Submit a design</h2>
+      <form method="dialog"><button class="close" aria-label="Close" value="cancel">×</button></form>
+    </div>
+    <form id="entry-form" class="dialog-form">
+      <label>Design image <input type="file" name="image" accept="image/jpeg,image/png,image/webp" required aria-describedby="image-help"></label>
+      <small id="image-help">Still JPG, PNG or WebP, up to 3 MB.</small>
+      <label>Title <span>(optional)</span><input name="title" maxlength="80"></label>
+      <label>Description <span>(optional)</span><textarea name="description" rows="3" maxlength="500"></textarea></label>
+      <p class="form-error" role="alert" hidden></p>
+      <button class="button primary" type="submit">Publish design</button>
+    </form>
+  </dialog>
+</body>
+</html>
