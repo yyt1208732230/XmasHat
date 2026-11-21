@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schema.cloudflare.com/wrangler/config-schema.json",
+  "name": "xmashat",
+  "main": "./worker/index.mjs",
+  "compatibility_date": "2026-11-21",
+  "assets": {
+    "directory": "./docs",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "avr3-xmas-hat",
+      "database_id": "ebdf9173-0463-4cdb-90fc-22aedb435fc3" 
+    }
+  ],
+  "vars": {
+    "SITE_ORIGIN": "https://yyt1208732230.github.io",
+    "CLOSES_AT": "2026-12-11T00:00:00+10:00"
+  }
+}

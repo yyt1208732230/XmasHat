@@ -4,10 +4,9 @@ The AVR3 Xmas Hat Design Competition uses a static, build-free site and a separa
 
 ## Publish
 
-1. Create a dedicated D1 database. Run the schema supplied separately to the organiser in the D1 console. Keep the database ID, credentials and schema out of the repository.
-2. Create a local Wrangler configuration outside the repository. Set `name` to the Worker name, `main` to the absolute path of `worker/index.mjs`, and `compatibility_date` to the deployment date. In `d1_databases`, bind the dedicated database as `DB`. Under `vars`, set `SITE_ORIGIN` to your GitHub Pages origin, for example `https://your-account.github.io` without the repository path. [Wrangler configuration](https://developers.cloudflare.com/workers/wrangler/configuration/)
-3. Set a random, private `AUTH_SECRET` with `npx wrangler secret put AUTH_SECRET --config <config-path>`. Keep it stable so existing accounts can still log in. Deploy with `npx wrangler deploy --config <config-path>`.
-4. Set the Worker’s public HTTPS URL in `docs/config.js`. Push the site to GitHub and choose the branch and `/docs` in **Settings → Pages**. [GitHub Pages publishing source](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+1. Open `wrangler.jsonc` and replace `database_name` and `database_id` with the values shown on your D1 database page. This file configures a Worker entry point, the `docs` static assets, the D1 binding, and GitHub Pages CORS origin. [Wrangler configuration](https://developers.cloudflare.com/workers/wrangler/configuration/)
+2. In Cloudflare, open Worker `xmashat` and go to **Settings → Variables and Secrets**. Add a secret named `AUTH_SECRET` with a random private value. Keep it stable so accounts can log in after later deployments. The GitHub connected Worker uses the repository's `wrangler.jsonc` on its next build.
+3. In **GitHub → Settings → Pages**, choose the `main` branch and `/docs` folder. The site calls the Worker URL set in `docs/config.js`. [GitHub Pages publishing source](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 
 ## Run the event
 

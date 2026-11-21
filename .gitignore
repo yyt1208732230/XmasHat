@@ -4,7 +4,7 @@
 wrangler.local.*
 wrangler.toml
 wrangler.json
-wrangler.jsonc
+!wrangler.jsonc
 *.sqlite
 *.sqlite-*
 worker-local/
