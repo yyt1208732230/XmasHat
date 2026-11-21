@@ -14,7 +14,7 @@
     <div class="shell header-inner">
       <a class="brand" href="#top" aria-label="AVR3 Christmas home">
         <img src="./assets/santaHatAVR3.png" width="44" height="44" alt="">
-        <span>AVR3 <small>CHRISTMAS</small></span>
+        <span>PARTY <small>AVR3</small></span>
       </a>
       <nav aria-label="Main navigation">
         <a href="#gallery">Gallery</a>
@@ -32,7 +32,10 @@
       <div class="hero-copy">
         <p class="eyebrow"><span></span> THE AVR3 CHRISTMAS CHALLENGE</p>
         <h1 id="title">Xmas Hat <em>Competition</em></h1>
-        <p>Give Santa’s hat an AVR3 makeover. Sketch it, make it by hand or use AI, then share your design and vote for your favourites.</p>
+        <ul class="hero-points">
+          <li>Design a Santa hat by hand, with AI or however you like.</li>
+          <li>Share your design and vote for your favourites.</li>
+        </ul>
         <div class="hero-actions">
           <button class="button primary" type="button" data-submit-entry><span aria-hidden="true">＋</span> Submit a design</button>
           <a class="button hero-link" href="#gallery">Browse entries</a>
@@ -56,17 +59,32 @@
       <div class="rule-grid">
         <div>
           <h2>Make and submit</h2>
-          <p>Enter as many designs as you like, in your own time. Upload a still JPG, PNG or WebP, up to 3 MB. Videos and animated images are out. The title and description are optional.</p>
+          <ul class="rule-list">
+            <li>Enter as many designs as you like, in your own time.</li>
+            <li>Upload one still JPG, PNG or WebP image, up to 3 MB.</li>
+            <li>Videos and animated images are not accepted.</li>
+            <li>Title and description are optional.</li>
+          </ul>
         </div>
         <div>
           <h2>Vote and score</h2>
-          <p>Give one vote per category on as many entries as you like. Tap again to remove it. Total score = ✨ Wow factor votes + 🎯 Theme fit votes.</p>
-          <p>Vote totals and rankings are live. Other participants cannot see who voted. The winner earns an award. Earlier entries appear first when scores tie, and tied leaders share the win.</p>
+          <ul class="rule-list">
+            <li>Vote once per category on as many designs as you like.</li>
+            <li>Tap a vote again to remove it.</li>
+            <li>Total score = ✨ Wow factor votes + 🎯 Theme fit votes.</li>
+            <li>Live totals and rankings are public. Voter identities stay private.</li>
+            <li>The winner earns an award. Earlier entries rank higher in a tie. Tied leaders share the win.</li>
+          </ul>
         </div>
         <div>
           <h2>Keep it fair and respectful</h2>
-          <p>Create one account for yourself. Use a password just for this competition. If you forget it, your account becomes a ghost account 👻. The site and competition data will be removed after the event.</p>
-          <p>Entries must respect racial and gender equality and diverse beliefs, and follow QUT’s <a href="https://mopp.qut.edu.au/document/view.php?id=25">student</a> and <a href="https://mopp.qut.edu.au/document/view.php?id=24">staff</a> codes of conduct.</p>
+          <ul class="rule-list">
+            <li>Create one account for yourself.</li>
+            <li>Use a password just for this competition. If you forget it, your account becomes a ghost account 👻.</li>
+            <li>The site and competition data will be removed after the event.</li>
+            <li>Respect racial and gender equality and diverse beliefs.</li>
+            <li>Follow QUT’s <a href="https://mopp.qut.edu.au/document/view.php?id=25">student</a> and <a href="https://mopp.qut.edu.au/document/view.php?id=24">staff</a> codes of conduct.</li>
+          </ul>
         </div>
       </div>
     </details>
@@ -75,7 +93,10 @@
       <div class="gallery-heading">
         <div>
           <h2 id="gallery-title">The hat gallery</h2>
-          <p>✨ Wow factor for designs that surprise you. 🎯 Theme fit for designs that bring all three ideas together.</p>
+          <ul class="gallery-key">
+            <li>✨ Wow factor: designs that surprise you.</li>
+            <li>🎯 Theme fit: automated driving, technology and safety.</li>
+          </ul>
         </div>
         <label class="sort">Sort by
           <select id="sort">
@@ -103,7 +124,10 @@
       <small id="username-help" hidden>3–32 letters, numbers, dots, underscores or hyphens.</small>
       <label id="display-field" hidden>Display name <input name="displayName" maxlength="48" disabled></label>
       <label>Password <input name="password" type="password" autocomplete="current-password" required minlength="3" maxlength="128"></label>
-      <p class="field-note">Use a password just for this competition. Forgot it? Your account becomes a ghost account 👻.</p>
+      <ul class="field-note">
+        <li>Use a password just for this competition.</li>
+        <li>Forgot it? Your account becomes a ghost account 👻.</li>
+      </ul>
       <p class="form-error" role="alert" hidden></p>
       <button class="button primary" id="account-submit" type="submit">Log in</button>
       <button id="account-switch" class="text-button" type="button">Create an account</button>

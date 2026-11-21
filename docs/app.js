@@ -95,7 +95,17 @@ function renderEntry(entry, rank) {
     article.append(badge);
   }
   const content = make('div', 'entry-content');
-  content.append(make('h3', '', entry.title || 'Untitled design'), make('p', '', `By ${entry.displayName}`));
+  content.append(make('h3', '', entry.title || 'Untitled design'));
+  const byline = make('p', 'creator');
+  byline.append(make('span', '', 'By '));
+  if (entry.displayName) {
+    byline.append(make('span', '', entry.displayName));
+  } else {
+    const mosaic = make('span', 'creator-mosaic', 'Participant');
+    mosaic.setAttribute('aria-label', 'Creator name hidden');
+    byline.append(mosaic);
+  }
+  content.append(byline);
   if (entry.description) content.append(make('p', 'description', entry.description));
 
   const reactions = make('div', 'reactions');
@@ -143,7 +153,9 @@ function renderGallery() {
   const score = gallery.entries[0]?.score;
   const winners = score > 0 ? gallery.entries.filter(entry => entry.score === score) : [];
   if (votingClosed && winners.length) {
-    const names = winners.map(entry => `${entry.title || 'Untitled design'} by ${entry.displayName}`);
+    const names = winners.map(entry => entry.displayName
+      ? `${entry.title || 'Untitled design'} by ${entry.displayName}`
+      : entry.title || 'Untitled design');
     $('#event-date').textContent = `${names.length === 1 ? 'Winner' : 'Joint winners'}: ${new Intl.ListFormat('en-AU').format(names)}`;
   } else {
     $('#event-date').textContent = votingClosed ? 'Competition closed' : `Winner announced ${date}`;

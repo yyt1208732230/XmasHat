@@ -210,10 +210,15 @@ h1,h2,p {
   font-style: normal;
 }
 
-.hero-copy>p:not(.eyebrow,.hero-date) {
+.hero-points {
   max-width: 41ch;
   color: #ebdfef;
-  margin-bottom: 24px;
+  margin: 0 0 24px;
+  padding-left: 1.2em;
+}
+
+.hero-points li+li,.gallery-key li+li,.rule-list li+li,.field-note li+li {
+  margin-top: 5px;
 }
 
 .hero-actions {
@@ -353,13 +358,10 @@ h1,h2,p {
   margin: 0 0 6px;
 }
 
-.rule-grid p {
+.rule-list {
   color: var(--muted);
-  margin-bottom: 8px;
-}
-
-.rule-grid p:last-child {
-  margin-bottom: 0;
+  margin: 0;
+  padding-left: 1.2em;
 }
 
 .rule-grid a {
@@ -386,9 +388,12 @@ h1,h2,p {
   margin: 0 0 7px;
 }
 
-.gallery-heading p {
+.gallery-key {
+  display: grid;
+  gap: 3px;
   color: var(--muted);
   margin: 0;
+  padding-left: 1.2em;
 }
 
 .sort {
@@ -451,6 +456,16 @@ h1,h2,p {
 .entry p {
   margin: 4px 0 9px;
   color: var(--muted);
+}
+
+.creator-mosaic {
+  display: inline-block;
+  min-width: 7.5ch;
+  padding-inline: 3px;
+  border-radius: 3px;
+  color: transparent;
+  background: repeating-linear-gradient(90deg,#82788e 0 5px,#c7bdcf 5px 9px);
+  user-select: none;
 }
 
 .entry p.description {
@@ -689,6 +704,10 @@ dialog::backdrop {
   margin: 0;
 }
 
+.field-note {
+  padding-left: 1.2em;
+}
+
 .form-error {
   color: #a01137;
 }
@@ -814,7 +833,7 @@ dialog::backdrop {
     flex-direction: column;
   }
 
-  .gallery-heading p {
+  .gallery-key {
     max-width: 43ch;
   }
 }
