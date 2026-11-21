@@ -464,7 +464,8 @@ h1,h2,p {
   padding-inline: 3px;
   border-radius: 3px;
   color: transparent;
-  background: repeating-linear-gradient(90deg,#82788e 0 5px,#c7bdcf 5px 9px);
+  -webkit-text-fill-color: transparent;
+  background: repeating-conic-gradient(#625970 0 25%,#c6bdce 0 50%) 0 0/7px 7px;
   user-select: none;
 }
 

@@ -98,7 +98,7 @@ function renderEntry(entry, rank) {
   content.append(make('h3', '', entry.title || 'Untitled design'));
   const byline = make('p', 'creator');
   byline.append(make('span', '', 'By '));
-  if (entry.displayName) {
+  if (account && entry.isMine && entry.displayName) {
     byline.append(make('span', '', entry.displayName));
   } else {
     const mosaic = make('span', 'creator-mosaic', 'Participant');

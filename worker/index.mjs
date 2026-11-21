@@ -119,7 +119,9 @@ async function readJSON(request) {
 
 async function listEntries(db, username, closesAt, now) {
   const entries = await db.prepare(`
-    SELECT e.id, e.title, e.description, e.created_at AS createdAt, a.display_name AS displayName,
+    SELECT e.id, e.title, e.description, e.created_at AS createdAt,
+      CASE WHEN e.username = ?1 THEN 1 ELSE 0 END AS isMine,
+      CASE WHEN e.username = ?1 THEN a.display_name ELSE NULL END AS displayName,
       COUNT(CASE WHEN v.criterion = 'wow' THEN 1 END) AS wow,
       COUNT(CASE WHEN v.criterion = 'theme' THEN 1 END) AS theme,
       COUNT(v.criterion) AS score,
