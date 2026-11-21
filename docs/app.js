@@ -162,7 +162,7 @@ function renderGallery() {
   }
   for (const button of document.querySelectorAll('[data-submit-entry]')) {
     button.disabled = votingClosed;
-    button.textContent = votingClosed ? 'Entries closed' : '＋ Submit a design';
+    button.textContent = votingClosed ? 'Entries closed' : '＋ Submit a hat';
   }
 }
 

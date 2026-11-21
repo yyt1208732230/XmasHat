@@ -8,6 +8,7 @@ wrangler.json
 *.sqlite
 *.sqlite-*
 worker-local/
+admin-local/
 *-local/
 node_modules/
 dist/
